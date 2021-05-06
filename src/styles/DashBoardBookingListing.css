@@ -1,0 +1,106 @@
+.DashBoard--bookings-list-item {
+    list-style: none;
+    color: grey;
+}
+
+.DashBoard--bookings-list-item.present {
+    color: black;
+}
+
+.DashBoard--bookings-list-item:nth-child(even) {
+    background-color: rgb(241, 241, 241);
+}
+
+.DashBoard--bookings-list-item:nth-child(odd) {
+    background-color: #fff;
+}
+
+.DashBoard--booking-link {
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+}
+
+.DashBoard--booking-name {
+    position: sticky;
+    left: calc(-1*var(--label-size));
+    background-color: inherit;
+    width: var(--label-size);
+    margin-left: calc(-1*var(--label-size));
+    padding: var(--elementPadding);
+    padding-right: 1.5rem;
+    word-break: break-word;
+    hyphens: auto;
+    border-right: 1px solid black;
+    z-index: 1;
+}
+
+.DashBoard--booking-name::after {
+    content: "";
+    position: absolute;
+    right: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+}
+
+/* color coding  */
+.DashBoard--bookings-list-item.paid .DashBoard--booking-name::after {
+    background-color: rgb(40, 176, 40);
+}
+
+.DashBoard--bookings-list-item.past-unpaid .DashBoard--booking-name::after {
+    background-color: rgb(194, 29, 29);
+}
+
+.Dashboard--dates-bar-origin {
+    /* this sets the unit and origin for the bar (based on --date-width) */
+    position: relative;
+    left: calc(.5 * var(--date-width));
+    width: var(--date-width);
+}
+
+.Dashboard--dates-bar {
+    --endpoint-diameter: .5rem;
+    position: absolute;
+    height: 2px;
+    background-color: rgb(191, 191, 191);
+    left: calc(var(--bar-offset)*100%);
+    width: calc(var(--bar-length)*100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.present .Dashboard--dates-bar {
+    background-color: black;
+}
+
+.DashBoard--dates-bar-endpoint {
+    height: var(--endpoint-diameter);
+    width: var(--endpoint-diameter);
+    border-radius: 50%;
+    border: 4px solid rgb(191, 191, 191);
+}
+
+.present .DashBoard--dates-bar-endpoint {
+    border: 4px solid #000;
+}
+
+.DashBoard--dates-bar-endpoint--start {
+    margin-left: calc(-0.5*var(--endpoint-diameter));
+}
+
+.DashBoard--dates-bar-endpoint--end {
+    margin-right: calc(-0.5*var(--endpoint-diameter));
+}
+
+/* hover styles */
+.DashBoard--bookings-list-item:hover {
+    background-color: var(--blue) !important;
+}
+
+.DashBoard--bookings-list-item:hover .DashBoard--dates-bar-endpoint {
+}

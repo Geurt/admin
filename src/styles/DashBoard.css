@@ -1,0 +1,129 @@
+.DashBoard--bookings-outer-container {
+    /* vars */
+    --label-size: 15rem;
+    --elementPadding: .5rem;
+    --date-width: 2.1rem;
+
+    /* just to keep the scrolling container inside fixed to bottom*/
+    position: fixed;
+    bottom: 0;
+    left: 10vw;
+    height: 80vh;
+    width: 80vw;
+}
+@media (max-width: 600px) {
+    .DashBoard--bookings-outer-container {
+        --label-size: 10rem;
+        left: 5vw;
+        width: 90vw;
+        height: 75vh;
+    }
+}
+
+.DashBoard--bookings-container {
+    /* the main container takes care of scrolling */
+    position: absolute;
+    padding-left: var(--label-size);
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    overscroll-behavior: none;
+}
+
+
+.DashBoard--bookings-list {
+    padding: 0 0 5rem 0;
+}
+
+.DashBoard--bookings-inner-wrapper {
+    position: relative;
+    /* this is only to make the ul stretch all the way */
+    display: inline-block;
+    padding-right: 5rem;
+}
+
+.DashBoard--bookings-header-dates {
+    position: sticky;
+    top: 0;
+    margin-left: calc(-1*var(--label-size));
+    padding-left: var(--label-size);
+    padding-top: 1rem;
+    background-color: #fff;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.DashBoard--bookings-header-date {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: var(--date-width);
+    padding: var(--elementPadding);
+    background: #fff;
+    border-bottom: 1px solid #000;
+}
+
+.DashBoard--bookings-header-label {
+    display:none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: var(--label-size);
+    height: 4.3rem;
+    line-height: 4.3rem;
+    vertical-align: bottom;
+    border-right: 1px solid black;
+    background-color: #fff;
+    z-index: 100;
+    color: grey;
+}
+@media (max-width: 1100px) {
+    .DashBoard--bookings-header-label {
+        top: 2px;
+        padding-top: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .DashBoard--bookings-header-label {
+        top: 4px;
+    }
+}
+
+.DashBoard--bookings-header-label-text {
+    position: absolute;
+    line-height: 1rem;
+    bottom: .6rem;
+    right: var(--elementPadding);
+}
+
+.DashBoard--bookings-header-date-month {
+    position: absolute;
+    bottom: 3rem;
+    z-index: 1;
+    color: grey;
+}
+
+.DashBoard--bookings-header-total {
+    color: gray;
+}
+
+.Dashboard--infinite-scroll-trigger {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    top: 0;
+    right: -25rem;
+    width: 30rem;
+    height: 100%;
+    background-color: #fff;
+}
+
+.DashBoard--bookings-container .Loader {
+    position: fixed;
+    left: 55%;
+    bottom: 30%;
+    z-index: 20;
+}
